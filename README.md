@@ -11,6 +11,40 @@ Kepler is currently under development in the `development` branch.
 ## What Purpose Will Kepler Serve?
 Kepler's sole job is to create UIDs for anything across the Bench Network, from [Neutron](https://github.com/benchlab/neutron)-based decentralized networks (RootChains, SideChains and dappChains), [Aero](https://github.com/benchlab/aero) Objects (Files, Data and Media), [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), dApps, hardware resources from [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), BenchWallet addresses and users within the Bench network. Anything and everything on the Bench Network, can be identified and truly brings together a network that will never be controlled by a single entity.   
 
+# What Is benOS
+[benOS](https://github.com/benchlab/benos) is a decentralized operating system, originally based on Linux, uses some design strategies from [RedoxOS](https://github.com/redox-os) and even some design concepts from [OpenStack](https://github.com/openstack), [Ethereum](https://github.com/ethereum/go-ethereum) and [EOS](https://github.com/eosio). Although we utilize some of their design strategies, benOS is completely custom from a codebase perspective. 
+
+benOS has many components that make the wheels turn. Below are a list of those components:
+
+## Other benOS Network Components
+[Nova](https://github.com/benchlab/nova) - Global Decentralized Hypervisor For The Bench Network <br>
+[Kepler](https://github.com/benchlab/kepler) - Global Decentralized Identity Management For The Bench Network <br>
+[Designate](https://github.com/benchlab/designate) - Global Decentralized Naming Service For The Bench Network <br>
+[Flutter](https://github.com/benchlab/flutter) - Global Decentralized Image Service For The Bench Network <br>
+[Neutron](https://github.com/benchlab/neutron) - Global Network Creation & Management For The Bench Network <br>
+  - [BenchCore](https://github.com/benchlab/BenchCore) - Core Decentralized Network Component For The Bench Network <br>
+  - [BenchChain](https://github.com/benchlab/BenchChain) - Neutron's RootChain On The Bench Network <br>
+
+[Aero](https://github.com/benchlab/aero) - Global Object Storage Distributor & Manager For The Bench Network <br>
+[Explorer](https://github.com/benchlab/explorer) - Global dApp Distributor, Manager and Viewer For The Bench Network <br>
+[benFS](https://github.com/benchlab/benFS) - benOS FileSystem <br>
+[dappJS](https://github.com/benchlab/dappjs) - dApp Development Kit For The Bench Network <br>
+[Mercury](https://github.com/benchlab/mercury) - benOS Graphical User Interface <br>
+[Asteroid](https://github.com/benchlab/go-asteroid) - benOS Native Programming Language <br>
+[Meteor](https://github.com/benchlab/meteor) - benOS Native IDE for dApp Development <br>
+<br><br>
+
+## benOS Core Components
+[benOS-Microkernel](https://github.com/benOS-Microkernel) - benOS Microkernel <br>
+[benOS-Bootloader](https://github.com/benchlab/benOS-Bootloader) - benOS Bootloader <br>
+[ParseArgs](https://github.com/benchlab/parseargs) - benOS-based Argument Parsing  <br>
+[X](https://github.com/benchlab/X) - benOS Graphical User Interface <br>
+
+**NOTE:** ***There are other pieces under development as well, as our development team grows.*** 
+
+## Why A Decentralized Operating System?
+As we move through the growth stages of decentralized technologies, at some point we had to get to the operating system. We have spent an enormous amount of time looking at how a decentralized operating systems should work and what makes them different from their earlier counterparts. A lot of the methodologies of old are still used but the way they work have changed dramatically. Some developers see a blockchain as a global computer and that it therefore is a operating system and in a way, they're right but in some ways they're wrong. Below we take a look at traditional operating systems vs. decentralized operating systems, as well as sophisticated blockchains vs. decentralized operating systems. 
+
 ## CREDITS AND ATTRIBUTES
 benOS may use software from other open source libraries. For a full list of software credits and acknowledgements, please visit [https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md](https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md). The original LICENSE or LICENSES for the originating software(s) and library or libraries that were used to create `Kepler` are still active, although, considering this Bench software and the softwares and/or libraries/packages it is `imported` into may be used to issue illegal securities, the BENCH LICENSE is activated for this purpose. This does not take away the credits, disable the originating LICENSE or in any way disown the original creation, creators, developers or organizations that originally developed many of the libaries used throughout Bench's large array of software libraries packaged together for the purposes of building a decentralized operating system (benOS)
 
