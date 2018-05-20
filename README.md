@@ -32,7 +32,7 @@ benOS has many components that make the wheels turn. Below are a list of those c
 [Mercury](https://github.com/benchlab/mercury) - benOS Graphical User Interface <br>
 [Asteroid](https://github.com/benchlab/go-asteroid) - benOS Native Programming Language <br>
 [Meteor](https://github.com/benchlab/meteor) - benOS Native IDE for dApp Development <br>
-<br><br>
+<br>
 
 ## benOS Core Components
 [benOS-Microkernel](https://github.com/benOS-Microkernel) - benOS Microkernel <br>
@@ -41,9 +41,6 @@ benOS has many components that make the wheels turn. Below are a list of those c
 [X](https://github.com/benchlab/X) - benOS Graphical User Interface <br>
 
 **NOTE:** ***There are other pieces under development as well, as our development team grows.*** 
-
-## Why A Decentralized Operating System?
-As we move through the growth stages of decentralized technologies, at some point we had to get to the operating system. We have spent an enormous amount of time looking at how a decentralized operating systems should work and what makes them different from their earlier counterparts. A lot of the methodologies of old are still used but the way they work have changed dramatically. Some developers see a blockchain as a global computer and that it therefore is a operating system and in a way, they're right but in some ways they're wrong. Below we take a look at traditional operating systems vs. decentralized operating systems, as well as sophisticated blockchains vs. decentralized operating systems. 
 
 ## CREDITS AND ATTRIBUTES
 benOS may use software from other open source libraries. For a full list of software credits and acknowledgements, please visit [https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md](https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md). The original LICENSE or LICENSES for the originating software(s) and library or libraries that were used to create `Kepler` are still active, although, considering this Bench software and the softwares and/or libraries/packages it is `imported` into may be used to issue illegal securities, the BENCH LICENSE is activated for this purpose. This does not take away the credits, disable the originating LICENSE or in any way disown the original creation, creators, developers or organizations that originally developed many of the libaries used throughout Bench's large array of software libraries packaged together for the purposes of building a decentralized operating system (benOS)
