@@ -14,6 +14,9 @@ Kepler's sole job is to create UIDs for anything across the Bench Network, from 
 ## Kepler UID Structure & Attributes
 Every Kepler UID has its own set of attributes, which make it easy on Kepler when deciphering what a UID was created for, what type of Kepler UID it is, who created the Kepler UID, [Quarantine](https://github.com/benchlab/quarantine)-based data arrays that help with associating data that is related to the UID, for example an Object UID for a file will have a file location or location(s) on the Bench Network inside these data-arrays. We call these data-arrays `klobs`. A `uni_key` is the last but sometimes the most important attribute within the Kepler UID structure, especially for Kepler UIDs for objects, where the `uni_key` is used as a verification mechanism for users wanting to access the object, and users wanting access would have to verify their `sec_key` that is required to match the `uni_key` stored with the Kepler Object UID, in order for the user to access that object or any user to access the object. Although, Kepler UID `types` allow for Kepler UIDs that represent objects, to be made public, where key authentication for accessing the data isn't needed. Below are the structures and attributes for Kepler Object UIDs and Kepler Account UIDs. Although these are the only examples shown, there are other types of Kepler UIDs used within the network.
 
+### How Kepler Generates RFC4122-Compliant UUIDs
+Kepler utilizes a javascript library called KeplerJS, that is used to generate  
+
 ### Kepler Object UID Attributes 
 ***Attributes:*** <br>
 **Key:** `uuid`: an RFC4122-compliant UUID used for identifying a Bench Network object. <br>
@@ -21,6 +24,8 @@ Every Kepler UID has its own set of attributes, which make it easy on Kepler whe
 `type`: the type of Object UUID. <br>
 `klob`: klobs are data related to the UUID. This could be the location of a file or more. Klob has its own structure.<br>
 `uni_key`: universal (public) key that is generated along with the Kepler Object UUID. <br>
+`nonce`: nonce related to the Kepler Account UUID. 
+
 
 ### Kepler Account UID Attributes
 ***Attributes:*** <br>
@@ -29,6 +34,7 @@ Every Kepler UID has its own set of attributes, which make it easy on Kepler whe
 `wallet_addr`: wallet address associated with the account_uuid. Every account UUID has a wallet address as well <br>
 `uni_key`: universal (public) key that is generated along with the Kepler Account UUID. <br>
 `sec_key`: secret (private) key that is generated along with the Kepler UUID. <br>
+ `nonce`: nonce related to the generation of the Kepler Account UUID and correlates to the `sec_key`. 
 `klob`: klobs are data related to the Account UUID. This could be the benOS-related node that the Account UUID was generated from. Klob-based data generated with Account UUIDs can differ, depending on the circumstances surrounding the generation of the Account UUID. <br>
 
 ## Kepler-CLI
@@ -36,6 +42,76 @@ Every Kepler UID has its own set of attributes, which make it easy on Kepler whe
 
 ### Kepler-CLI Usage
 
+```
+# kepler-cli new account
+┌──────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────┐
+│             kepler uuid              │             account_uuid             │           wallet_addr              │
+├──────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ 2fd305ea-912c-405b-bfed-7d98143d0d56 │ e4f48839-db29-47c4-abc9-7e33dada1858 │  ba9ce39273b2a1cf04cc948893fea3c8  │
+└──────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────┘
+uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56
+account_uuid: e4f48839-db29-47c4-abc9-7e33dada1858
+id: 3ebb0942f24e02c2f69d7d79bf4ace02645d42d247336738c0777084826aaac0
+wallet_addr_uni: VYBioijzebrLwDX2K8wkMRLD98iRjbatQV4guXw2iDw=
+wallet_addr_sec: upzjknOyoc8EzJSIk/6jyOGLIrS4mpml/hcQoMOaNDE=
+uni_key: JGqZMWLzCx+1whWppWIHeCtmGf9VgP8EQ+j2/z3PZy4=
+sec_key: ThO6DslXOwZucznK/E0jjUNYR3tw2sySjgW6HXjmd6wkapkxYvMLH7XCFamlYgd4K2YZ/1WA/wRD6Pb/Pc9nLg==
+nonce: wcov83GTHsa4SPNABpgIO0Q2LmJVWoLK
+hex_key: ba9ce39273b2a1cf04cc948893fea3c8e18b22b4b89a99a5fe1710a0c39a3431
+klob: { 
+uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56,
+account_uuid: 'e4f48839-db29-47c4-abc9-7e33dada1858',
+time_created: '2018-05-20T07:11:22.526Z',
+benchx_uuid: 'b33a4dcd-7057-4618-a635-9ad476cb45c3'
+}
+```
+`kepler-cli` `benchmark` - Kepler-CLI has an onboard benchmarking tool, used to monitor the performance of Kepler-CLI's key generation, messaging signing and key pair serialization statistics. 
+
+```
+# kepler-cli benchmark 
+
+===== Key Generation =====
+Iterations: 3400000
+Total runtime: 211s
+Keys per sec: 7309
+===== Message Signing =====
+Iterations: 3400000
+Message size: 4096 bytes
+Total runtime: 17s
+Signatures per sec: 43171
+===== Key Pair Serialization  =====
+Iterations: 3400000
+Total runtime: 41s
+Roundtrips per sec: 12819
+
+```
+`kepler-cli` `new website` - Kepler-CLI has the ability to upload websites to a Nova Compute Node (benOS-powered hardware) on the Bench Network. It returns a `website_uuid` and signs the upload with the `uni_key`, `sec_key` to create a `signature`. To upload a new version of a website, you would have to have the uni_key and sec_key to do so. A `klob_website` is created with data related to the website upload, including the `time_created` and the `benchx_uuid` which is the Nova Compute Node, it was uploaded from.
+```
+# kepler-cli new website -l ~/websites/bench-website/
+Uploading files to network... 
+>> 10%
+>> 23%
+>> 41%
+>> 83%
+>> 97%
+_| Website uploaded to the network! 
+
+_| Kepler Website Object UUID Attributes:
+uuid: 2c70f86b-d052-4527-b5dd-cabc0eafc94e
+website_uuid: fe069f33-4916-47ab-8663-a90ea34d0f07
+uni_key: t77OC4+K8pOcMHNFk1jPUBMQ6LafNEvCu8jQElf/37s=
+sec_key: +pNWvwQL9piAf5E3vpnlmwxUj7WXEiPpEKguqtTMLYK3vs4Lj4ryk5wwc0WTWM9QExDotp80S8K7yNASV//fuw==
+signature: LvtL91SuslqE+t7LBBDxx6Hod2wu9iMvdYbW/EZ/fbgqo2+vyT+VjxP8pU8VOZrtYaSU4oACQQkqZOc0hziQCA==
+memo: benchx
+nonce: wC526HWiquE/A1q2FxJRKpRIfCs50H1t
+hex_key: ea75a7a1522886a9e5d7784c922d430a17fc1478cae6a4fe671c5a99282eef44
+klob_website: { 
+uuid: 2c70f86b-d052-4527-b5dd-cabc0eafc94e,
+website_uuid: 'e4f48839-db29-47c4-abc9-7e33dada1858',
+time_created: '2018-05-20T07:11:22.526Z',
+benchx_uuid: 'b33a4dcd-7057-4618-a635-9ad476cb45c3'
+}
+```
 
 # What Is benOS
 [benOS](https://github.com/benchlab/benos) is a decentralized operating system, originally based on Linux, uses some design strategies from [RedoxOS](https://github.com/redox-os) and even some design concepts from [OpenStack](https://github.com/openstack), [Ethereum](https://github.com/ethereum/go-ethereum) and [EOS](https://github.com/eosio). Although we utilize some of their design strategies, benOS is completely custom from a codebase perspective. 
