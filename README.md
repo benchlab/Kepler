@@ -56,7 +56,7 @@ wallet_addr_sec: upzjknOyoc8EzJSIk/6jyOGLIrS4mpml/hcQoMOaNDE= // ed25519 secret 
 wallet_addr_uni: VYBioijzebrLwDX2K8wkMRLD98iRjbatQV4guXw2iDw= // ed25519 universal key, derived from `wallet_addr_sec`
 sec_key: ThO6DslXOwZucznK/E0jjUNYR3tw2sySjgW6HXjmd6wkapkxYvMLH7XCFamlYgd4K2YZ/1WA/wRD6Pb/Pc9nLg== // ed25519 secret key, derived from `wallet_addr_sec`, which derives from `id`
 uni_key: JGqZMWLzCx+1whWppWIHeCtmGf9VgP8EQ+j2/z3PZy4= // ed25519 universal key, derived from `sec_key`
-nonce: 0fef761a1f95b18948412e521a37ee49369d46b0025dd71cfd5d246c9744f3d1294eeab44acb0f320352f82a29dca4a2f503468098a99f4496c997fbe891846a // based on uni_key
+nonce: 0fef761a1f95b18948412e521a37ee49369d46b0025dd71cfd5d246c9744f3d1294eeab44acb0f320352f82a29dca4a2f503468098a99f4496c997fbe891846a // SALSA20 hash of uni_key
 hex_key: MmZkMzA1ZWEtOTEyYy00MDViLWJmZWQtN2Q5ODE0M2QwZDU2 // BASE64 of Account ID Object UUID Key 
 klob: { 
 uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56, // Reference of the `uuid` 
