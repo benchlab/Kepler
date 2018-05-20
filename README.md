@@ -11,6 +11,32 @@ Kepler is currently under development in the `development` branch.
 ## What Purpose Will Kepler Serve?
 Kepler's sole job is to create UIDs for anything across the Bench Network, from [Neutron](https://github.com/benchlab/neutron)-based decentralized networks (RootChains, SideChains and dappChains), [Aero](https://github.com/benchlab/aero) Objects (Files, Data and Media), [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), dApps, hardware resources from [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), BenchWallet addresses and users within the Bench network. Anything and everything on the Bench Network, can be identified and truly brings together a network that will never be controlled by a single entity.   
 
+## Kepler UID Structure & Attributes
+Every Kepler UID has its own set of attributes, which make it easy on Kepler when deciphering what a UID was created for, what type of Kepler UID it is, who created the Kepler UID, [Quarantine](https://github.com/benchlab/quarantine)-based data arrays that help with associating data that is related to the UID, for example an Object UID for a file will have a file location or location(s) on the Bench Network inside these data-arrays. We call these data-arrays `klobs`. A `uni_key` is the last but sometimes the most important attribute within the Kepler UID structure, especially for Kepler UIDs for objects, where the `uni_key` is used as a verification mechanism for users wanting to access the object, and users wanting access would have to verify their `sec_key` that is required to match the `uni_key` stored with the Kepler Object UID, in order for the user to access that object or any user to access the object. Although, Kepler UID `types` allow for Kepler UIDs that represent objects, to be made public, where key authentication for accessing the data isn't needed. Below are the structures and attributes for Kepler Object UIDs and Kepler Account UIDs. Although these are the only examples shown, there are other types of Kepler UIDs used within the network.
+
+### Kepler Object UID Attributes 
+***Attributes:*** <br>
+**Key:** `uuid`: an RFC4122-compliant UUID used for identifying a Bench Network object. <br>
+`account_uuid`: account UUID that created the Object UUID for a Bench Network object. <br>
+`type`: the type of Object UUID. <br>
+`klob`: klobs are data related to the UUID. This could be the location of a file or more. Klob has its own structure.<br>
+`uni_key`: universal (public) key that is generated along with the Kepler Object UUID. <br>
+
+### Kepler Account UID Attributes
+***Attributes:*** <br>
+**Key:** `uuid`: an RFC4122-compliant UUID used for identifying a Bench Network for correlating to an `account_uuid`. <br>
+`account_uuid`: an RFC4122-compliant account UUID used as an identity across the entire Bench Network. <br>
+`wallet_addr`: wallet address associated with the account_uuid. Every account UUID has a wallet address as well <br>
+`uni_key`: universal (public) key that is generated along with the Kepler Account UUID. <br>
+`sec_key`: secret (private) key that is generated along with the Kepler UUID. <br>
+`klob`: klobs are data related to the Account UUID. This could be the benOS-related node that the Account UUID was generated from. Klob-based data generated with Account UUIDs can differ, depending on the circumstances surrounding the generation of the Account UUID. <br>
+
+## Kepler-CLI
+[Kepler-CLI](https://github.com/benchlab/kepler-cli) is the command line tool which interacts with the Kepler network identity service to initialize and update data within the Kepler network identity service. 
+
+### Kepler-CLI Usage
+
+
 # What Is benOS
 [benOS](https://github.com/benchlab/benos) is a decentralized operating system, originally based on Linux, uses some design strategies from [RedoxOS](https://github.com/redox-os) and even some design concepts from [OpenStack](https://github.com/openstack), [Ethereum](https://github.com/ethereum/go-ethereum) and [EOS](https://github.com/eosio). Although we utilize some of their design strategies, benOS is completely custom from a codebase perspective. 
 
