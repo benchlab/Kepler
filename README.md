@@ -49,20 +49,20 @@ Kepler utilizes a Javascript library called [KeplerGen](https://github.com/bench
 ├──────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
 │ 2fd305ea-912c-405b-bfed-7d98143d0d56 │ e4f48839-db29-47c4-abc9-7e33dada1858 │  ba9ce39273b2a1cf04cc948893fea3c8  │
 └──────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────┘
-uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56
-account_uuid: e4f48839-db29-47c4-abc9-7e33dada1858
-id: 3ebb0942f24e02c2f69d7d79bf4ace02645d42d247336738c0777084826aaac0
-wallet_addr_uni: VYBioijzebrLwDX2K8wkMRLD98iRjbatQV4guXw2iDw=
-wallet_addr_sec: upzjknOyoc8EzJSIk/6jyOGLIrS4mpml/hcQoMOaNDE=
-uni_key: JGqZMWLzCx+1whWppWIHeCtmGf9VgP8EQ+j2/z3PZy4=
-sec_key: ThO6DslXOwZucznK/E0jjUNYR3tw2sySjgW6HXjmd6wkapkxYvMLH7XCFamlYgd4K2YZ/1WA/wRD6Pb/Pc9nLg==
-nonce: wcov83GTHsa4SPNABpgIO0Q2LmJVWoLK
-hex_key: ba9ce39273b2a1cf04cc948893fea3c8e18b22b4b89a99a5fe1710a0c39a3431
+uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56 // Key value UUID for KeplerAccount ID Object, generated via `KeplerUUID` library.
+account_uuid: e4f48839-db29-47c4-abc9-7e33dada1858 // RFC-compliant v4 Account UUID for KeplerAccount ID Object, generated via `KeplerUUID` library.
+id: 3ebb0942f24e02c2f69d7d79bf4ace02645d42d247336738c0777084826aaac0 // SHA256 hash of the `account_uuid` 
+wallet_addr_sec: upzjknOyoc8EzJSIk/6jyOGLIrS4mpml/hcQoMOaNDE= // ed25519 secret key, derived from seed, which derives from `id` 
+wallet_addr_uni: VYBioijzebrLwDX2K8wkMRLD98iRjbatQV4guXw2iDw= // ed25519 universal key, derived from `wallet_addr_sec`
+sec_key: ThO6DslXOwZucznK/E0jjUNYR3tw2sySjgW6HXjmd6wkapkxYvMLH7XCFamlYgd4K2YZ/1WA/wRD6Pb/Pc9nLg== // ed25519 secret key, derived from `wallet_addr_sec`, which derives from `id`
+uni_key: JGqZMWLzCx+1whWppWIHeCtmGf9VgP8EQ+j2/z3PZy4= // ed25519 universal key, derived from `sec_key`
+nonce: 0fef761a1f95b18948412e521a37ee49369d46b0025dd71cfd5d246c9744f3d1294eeab44acb0f320352f82a29dca4a2f503468098a99f4496c997fbe891846a // based on uni_key
+hex_key: MmZkMzA1ZWEtOTEyYy00MDViLWJmZWQtN2Q5ODE0M2QwZDU2 // BASE64 of Account ID Object UUID Key 
 klob: { 
-uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56,
-account_uuid: 'e4f48839-db29-47c4-abc9-7e33dada1858',
-time_created: '2018-05-20T07:11:22.526Z',
-benchx_uuid: 'b33a4dcd-7057-4618-a635-9ad476cb45c3'
+uuid: 2fd305ea-912c-405b-bfed-7d98143d0d56, // Reference of the `uuid` 
+account_uuid: 'e4f48839-db29-47c4-abc9-7e33dada1858', // Reference of the `account_uuid`
+time_created: '2018-05-20T07:11:22.526Z', // Time that the KeplerAccount ID Object was created
+benchx_uuid: 'b33a4dcd-7057-4618-a635-9ad476cb45c3' // Only included and auto-generated, if generated via benOS-based device
 }
 ```
 `kepler-cli` `benchmark` - Kepler-CLI has an onboard benchmarking tool, used to monitor the performance of Kepler-CLI's key generation, messaging signing and key pair serialization statistics. 
