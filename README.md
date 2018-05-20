@@ -12,14 +12,14 @@ Kepler is currently under development in the `development` branch.
 Kepler's sole job is to create UIDs for anything across the Bench Network, from [Neutron](https://github.com/benchlab/neutron)-based decentralized networks (RootChains, SideChains and dappChains), [Aero](https://github.com/benchlab/aero) Objects (Files, Data and Media), [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), dApps, hardware resources from [Nova](https://github.com/benchlab/nova) Compute Nodes (Bench Computers), BenchWallet addresses and users within the Bench network. Anything and everything on the Bench Network, can be identified and truly brings together a network that will never be controlled by a single entity.   
 
 ## CREDITS AND ATTRIBUTES
-benOS may use software from other open source libraries. For a full list of software credits and acknowledgements, please visit [https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md](https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md). The original LICENSE or LICENSES for the originating software(s) and library or libraries that were used to create `benos-bootloader` are still active, although, considering this Bench software and the softwares and/or libraries/packages it is `imported` into may be used to issue illegal securities, the BENCH LICENSE is activated for this purpose. This does not take away the credits, disable the originating LICENSE or in any way disown the original creation, creators, developers or organizations that originally developed many of the libaries used throughout Bench's large array of software libraries packaged together for the purposes of building a decentralized operating system (benOS)
+benOS may use software from other open source libraries. For a full list of software credits and acknowledgements, please visit [https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md](https://github.com/benchlab/benOS/blob/master/ATTRIBUTES.md). The original LICENSE or LICENSES for the originating software(s) and library or libraries that were used to create `Kepler` are still active, although, considering this Bench software and the softwares and/or libraries/packages it is `imported` into may be used to issue illegal securities, the BENCH LICENSE is activated for this purpose. This does not take away the credits, disable the originating LICENSE or in any way disown the original creation, creators, developers or organizations that originally developed many of the libaries used throughout Bench's large array of software libraries packaged together for the purposes of building a decentralized operating system (benOS)
 
 ## VERSION
-1.0.1
+1.0.0
 
 ## LICENSE
 BENCH LICENSE<br>
-For benOS Bootloader
+For Kepler
 <br><br>
 Copyright (c) 2018 Bench Computer, Inc. <legal@benchx.io>
 <br><br>
