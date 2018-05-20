@@ -29,13 +29,20 @@ Kepler utilizes a Javascript library called [KeplerGen](https://github.com/bench
 
 ### Kepler Account UID Attributes
 ***Attributes:*** <br>
-**Key:** `uuid`: an RFC4122-compliant UUID used for identifying a Bench Network for correlating to an `account_uuid`. <br>
-`account_uuid`: an RFC4122-compliant account UUID used as an identity across the entire Bench Network. <br>
-`wallet_addr`: wallet address associated with the account_uuid. Every account UUID has a wallet address as well <br>
-`uni_key`: universal (public) key that is generated along with the Kepler Account UUID. <br>
-`sec_key`: secret (private) key that is generated along with the Kepler UUID. <br>
- `nonce`: nonce related to the generation of the Kepler Account UUID and correlates to the `sec_key`. 
+**Key:** `uuid`: Key value UUID for KeplerAccount ID Object, generated via `KeplerUUID` library. <br>
+`account_uuid`: RFC-compliant v4 Account UUID for KeplerAccount ID Object, generated via `KeplerUUID` library. <br>
+`id`: SHA256 hash of the `account_uuid` <br>
+`wallet_addr_sec`: ed25519 secret key, derived from seed, which derives from `id` <br>
+`wallet_addr_uni`: ed25519 universal key, derived from `wallet_addr_sec` <br>
+`sec_key`: ed25519 secret key, derived from `wallet_addr_sec`, which derives from `id` <br> 
+`uni_key`: ed25519 universal key, derived from `sec_key` <br> 
+`nonce`: SALSA20 hash of uni_key <br> 
+`hex_key`: BASE64 of Account ID Object UUID Key <br> 
 `klob`: klobs are data related to the Account UUID. This could be the benOS-related node that the Account UUID was generated from. Klob-based data generated with Account UUIDs can differ, depending on the circumstances surrounding the generation of the Account UUID. <br>
+`klob`>`uuid`: Reference of the `uuid`  <br>
+`klob`>`account_uuid`: Reference of the `account_uuid` <br>
+`klob`>`time_created`: Time that the KeplerAccount ID Object was created <br>
+`klob`>`benchx_uuid`: Only included and auto-generated, if generated via benOS-based device <br>
 
 ## Kepler-CLI
 [Kepler-CLI](https://github.com/benchlab/kepler-cli) is the command line tool which interacts with the Kepler network identity service to initialize and update data within the Kepler network identity service. 
@@ -99,8 +106,8 @@ _| Website uploaded to the network!
 _| Kepler Website Object UUID Attributes:
 uuid: 2c70f86b-d052-4527-b5dd-cabc0eafc94e
 website_uuid: fe069f33-4916-47ab-8663-a90ea34d0f07
-uni_key: t77OC4+K8pOcMHNFk1jPUBMQ6LafNEvCu8jQElf/37s=
 sec_key: +pNWvwQL9piAf5E3vpnlmwxUj7WXEiPpEKguqtTMLYK3vs4Lj4ryk5wwc0WTWM9QExDotp80S8K7yNASV//fuw==
+uni_key: t77OC4+K8pOcMHNFk1jPUBMQ6LafNEvCu8jQElf/37s=
 signature: LvtL91SuslqE+t7LBBDxx6Hod2wu9iMvdYbW/EZ/fbgqo2+vyT+VjxP8pU8VOZrtYaSU4oACQQkqZOc0hziQCA==
 memo: benchx
 nonce: wC526HWiquE/A1q2FxJRKpRIfCs50H1t
